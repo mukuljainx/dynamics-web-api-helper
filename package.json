@@ -1,0 +1,23 @@
+{
+  "name": "dynamics-web-api-helper",
+  "version": "1.0.0-0",
+  "description": "Helpers for Microsoft Dynamics webApi",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mukuljainx/dynamics-web-api-helper.git"
+  },
+  "author": "jainmukul1996@gmail.com",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mukuljainx/dynamics-web-api-helper/issues"
+  },
+  "homepage": "https://github.com/mukuljainx/dynamics-web-api-helper#readme",
+  "dependencies": {
+    "typescript": "^4.2.3"
+  }
+}
