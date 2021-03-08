@@ -4,26 +4,21 @@ export interface IOptions {
   filter?: Array<Array<string> | string>;
   expand?: Array<{ name: string; select: string[] }>;
   top?: number;
+  skiptoken?: string
 }
 
-const stringify = ({ select, orderBy, filter, expand, top }: IOptions) => {
+const stringify = ({ select, orderBy, filter, expand, top, skiptoken }: IOptions) => {
   let query = [];
 
   if (select && select.length > 0) {
     query.push(`$select=${select.join(",")}`);
   }
   if (filter && filter.length > 0) {
-    if (filter.length % 2 === 0) {
-      throw Error(
-        "Filter length cannot be even it should be joint using and or or"
-      );
-    }
-    // throw error if item exceed length of 3
     query.push(
       `$filter=${filter
         .map((item, index) => {
           if (index % 2 === 1 && typeof item !== "string") {
-            throw Error("Filter should be joint using and or or");
+            throw Error("Filter should be joint using 'and' or 'or'");
           }
           if (Array.isArray(item)) {
             return item.join(" ");
@@ -53,6 +48,11 @@ const stringify = ({ select, orderBy, filter, expand, top }: IOptions) => {
   if (top) {
     query.push(`$top=${top}`);
   }
+
+  if (skiptoken) {
+    query.push(`$skiptoken=${skiptoken}`)
+  }
+
   if (query.length === 0) {
     return "";
   } else {
