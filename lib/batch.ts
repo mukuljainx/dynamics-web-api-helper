@@ -22,7 +22,7 @@ const getMethod = (action: ActionType) => {
   return map[action];
 };
 
-export class BatchRequest {
+class BatchRequest {
   private batchId: string;
   private payload: string[];
   private transaction: string[];
@@ -180,3 +180,5 @@ export class BatchRequest {
     });
   };
 }
+
+export default BatchRequest;
