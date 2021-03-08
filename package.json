@@ -1,6 +1,6 @@
 {
   "name": "dynamics-web-api-helper",
-  "version": "1.0.0-3",
+  "version": "1.0.0-4",
   "description": "Helpers for Microsoft Dynamics webApi",
   "main": "lib/index.js",
   "typings": "lib/index.d.ts",
